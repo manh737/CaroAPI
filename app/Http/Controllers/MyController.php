@@ -6,8 +6,10 @@ use App\Http\Resources\thongkers;
 use App\Http\Resources\Rank;
 use App\Http\Resources\flist;
 use App\Http\Resources\User1;
+use App\Http\Resources\GetRoomcl;
 use App\UserCaro;
 use App\FriendList;
+use App\Room;
 use App\ThongKe;
 use Illuminate\Http\Request;
 
@@ -25,6 +27,10 @@ class MyController extends Controller
     public function manh1(){
         return (new User(UserCaro::all()))->response()->setStatusCode(200);
     }    
+
+    public function room(){
+        return (new GetRoomcl(Room::all()))->response()->setStatusCode(200);
+    } 
     
     public function thongke($id){
         thongkers::withoutWrapping();

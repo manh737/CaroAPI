@@ -20,6 +20,7 @@ use App\UserCaro;
 // });
 Route::get('/user/{id}', 'MyController@manh');
 Route::get('/user', 'MyController@manh1');
+Route::get('/room', 'MyController@room');
 Route::get('/thongke/{id}', 'MyController@thongke');
 Route::get('/thongke', 'MyController@thongke1');
 Route::get('/reset', 'MyController@reset');
