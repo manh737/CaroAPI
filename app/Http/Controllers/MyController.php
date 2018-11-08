@@ -19,7 +19,7 @@ class MyController extends Controller
         User1::withoutWrapping();
         $user = UserCaro::where('userName', '=', $data->userName)->where('password', '=', $data->password)->first();
         if(empty($user)){
-            return response()->json(['statuscode'=>'204'])->setStatusCode(204);
+            return response()->json(['statuscode'=>'404'])->setStatusCode(404);
         }
         return (new User1($user))->response()->setStatusCode(200);
     }
