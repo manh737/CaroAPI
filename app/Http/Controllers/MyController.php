@@ -10,7 +10,11 @@ class MyController extends Controller
 {
     public function manh($id){
         User1::withoutWrapping();
-        return (new User1(UserCaro::find($id)))->response()->setStatusCode(200);
+        $user = UserCaro::find($id);
+        if(empty($user)){
+            return response()->json(['statuscode'=>'404'])->setStatusCode(404);
+        }
+        return (new User1($user))->response()->setStatusCode(200);
     }
     public function manh1(){
         return (new User(UserCaro::all()))->response()->setStatusCode(202);
