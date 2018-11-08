@@ -20,4 +20,4 @@ use App\UserCaro;
 // });
 Route::get('/user/{id}', 'MyController@manh');
 Route::get('/user', 'MyController@manh1');
-Route::get('/login/username={userName}&password={password}','MyController@Login');
+Route::post('/login', 'MyController@login');

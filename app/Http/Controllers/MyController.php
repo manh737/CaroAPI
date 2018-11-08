@@ -10,16 +10,17 @@ class MyController extends Controller
 {
     public function manh($id){
         User1::withoutWrapping();
-        return new User1(UserCaro::find($id));
+        return (new User1(UserCaro::find($id)))->response()->setStatusCode(200);
     }
     public function manh1(){
-        return new User(UserCaro::all());
+        return (new User(UserCaro::all()))->response()->setStatusCode(202);
     }
-    public function Login($userName, $password){
-        $user = UserCaro::where('userName', '=', $userName)->where('password', '=', $password)->get();
-        if(isset($user->userName)){
-            return new User1(UserCaro::find($id));
+    public function login(Request $data){
+        User1::withoutWrapping();
+        $user = UserCaro::where('userName', '=', $data->userName)->where('password', '=', $data->password)->first();
+        if(empty($user)){
+            return response()->json(['statuscode'=>'204'])->setStatusCode(204);
         }
-        return false;
+        return (new User1($user))->response()->setStatusCode(200);
     }
 }
