@@ -16,7 +16,7 @@ class MyController extends Controller
         }
         return (new User1($user))->response()->setStatusCode(200);
     }
-
+    
     public function manh1(){
         return (new User(UserCaro::all()))->response()->setStatusCode(202);
     }
@@ -25,7 +25,7 @@ class MyController extends Controller
         User1::withoutWrapping();
         $user = UserCaro::where('userName', '=', $data->userName)->where('password', '=', $data->password)->first();
         if(empty($user)){
-            return response()->json(['statuscode'=>'404'])->setStatusCode(500);
+            return response()->json(['statuscode'=>'404'])->setStatusCode(404);
         }
         return (new User1($user))->response()->setStatusCode(200);
     }
