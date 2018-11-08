@@ -19,6 +19,8 @@ class User1 extends JsonResource
             'username' => $this->userName,
             'name' => $this->name,
             'friendlist' => $this->friendlist,
+            'lichsudau' => $this->lichSuDau,
+            'thongke' => $this->thongKe,
         ];
     }
 }
