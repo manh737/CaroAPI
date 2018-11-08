@@ -18,5 +18,6 @@ use App\UserCaro;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::get('/manh/{id}', 'MyController@manh');
-Route::get('/manh', 'MyController@manh1');
+Route::get('/user/{id}', 'MyController@manh');
+Route::get('/user', 'MyController@manh1');
+Route::get('/login/username={userName}&password={password}','MyController@Login');
