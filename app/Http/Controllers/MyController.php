@@ -20,6 +20,11 @@ class MyController extends Controller
     }
     
     public function manh1(){
+        $user = UserCaro::all();
+        foreach ($user as  $value) {
+            $value->email = "user" . $value->id . "@gmail.com";
+            $value->save();
+        }
         return (new User(UserCaro::all()))->response()->setStatusCode(202);
     }
 
