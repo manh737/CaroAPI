@@ -43,9 +43,8 @@ class MyController extends Controller
     }
 
     public function signup(Request $data){
-        $user = UserCaro::where('userName', '=', $data->username)->first();
-        $user1 = UserCaro::where('email', '=', $data->email)->first();
-        if(!empty($user) && !empty($user1)){
+        $user = UserCaro::where('userName', '=', $data->username)->orWhere('email', '=', $data->email)->first();
+        if(!empty($user)){
             return response()->json(['statuscode'=>'404'])->setStatusCode(404);
         }
         else{
