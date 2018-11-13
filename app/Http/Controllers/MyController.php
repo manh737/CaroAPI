@@ -52,6 +52,7 @@ class MyController extends Controller
             $createUser->userName = $data->username;
             $createUser->name = $data->name;
             $createUser->password = $data->password;
+            $createUser->email = $data->email;
             $createUser->save();
             $thongke = new ThongKe;
             $thongke->name = $data->username;
