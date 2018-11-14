@@ -22,6 +22,15 @@ class MyController extends Controller
     public function manh1(){
         return (new User(UserCaro::all()))->response()->setStatusCode(202);
     }
+    
+    public function reset(){
+        $user = UserCaro::all();
+        foreach ($user as $value) {
+            $value->status = 0;
+            $value->save();
+        }
+        return response()->json(['statuscode'=>'reset oke'])->setStatusCode(200);
+    }
 
     public function login(Request $data){
         User1::withoutWrapping();
