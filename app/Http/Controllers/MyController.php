@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Resources\User;
+use App\Http\Resources\flist;
 use App\Http\Resources\User1;
 use App\UserCaro;
 use App\FriendList;
@@ -20,7 +21,12 @@ class MyController extends Controller
     }
     
     public function manh1(){
-        return (new User(UserCaro::all()))->response()->setStatusCode(202);
+        return (new User(UserCaro::all()))->response()->setStatusCode(200);
+    }    
+    
+    public function friendlist($id){
+        $user = FriendList::where('idUser', '=', $id)->get();
+        return (new flist($user))->response()->setStatusCode(200);
     }
     
     public function reset(){

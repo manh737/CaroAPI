@@ -25,3 +25,4 @@ Route::post('/login', 'MyController@login');
 Route::post('/signup', 'MyController@signup');
 Route::post('/search', 'MyController@search');
 Route::post('/friendrequest', 'MyController@friendrequest');
+Route::get('/friendlist/{id}', 'MyController@friendlist');
