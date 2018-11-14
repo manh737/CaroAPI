@@ -28,11 +28,11 @@ class MyController extends Controller
         $user = UserCaro::where('userName', '=', $data->userName)->where('password', '=', $data->password)->first();
         
         if(empty($user)){
-            return response()->json(['statuscode'=>'404'])->setStatusCode(404);
+            return response()->json(['statuscode'=>'Sai tên đăng nhập mật khẩu'])->setStatusCode(404);
         }
         else{
             if($user->status == 1){
-                return response()->json(['return'=>'user đang có người đăng nhập'])->setStatusCode(404);
+                return response()->json(['statuscode'=>'User đang có người đăng nhập'])->setStatusCode(404);
             }else{
                 $user->status = 1;
                 $user->save();
