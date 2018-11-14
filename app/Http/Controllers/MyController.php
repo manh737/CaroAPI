@@ -31,14 +31,18 @@ class MyController extends Controller
             return response()->json(['statuscode'=>'404'])->setStatusCode(404);
         }
         else{
-            $user->status = 1;
-            $user->save();
-            $userStatus = FriendList::where('name', '=', $data->userName)->get();
-            foreach ($userStatus as $online) {
-                $online->status = 1;
-                $online->save();
+            if($user->status == 1){
+                return response()->json(['return'=>'user đang có người đăng nhập'])->setStatusCode(404);
+            }else{
+                $user->status = 1;
+                $user->save();
+                $userStatus = FriendList::where('name', '=', $data->userName)->get();
+                foreach ($userStatus as $online) {
+                    $online->status = 1;
+                    $online->save();
+                }
+                return (new User1($user))->response()->setStatusCode(200);
             }
-            return (new User1($user))->response()->setStatusCode(200);
         }
     }
 
