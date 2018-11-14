@@ -25,7 +25,12 @@ class MyController extends Controller
     
     public function reset(){
         $user = UserCaro::all();
+        $user1 = FriendList::all();
         foreach ($user as $value) {
+            $value->status = 0;
+            $value->save();
+        }
+        foreach ($user1 as $value) {
             $value->status = 0;
             $value->save();
         }
