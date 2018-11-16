@@ -94,4 +94,11 @@ class MyController extends Controller
         return (new User($user))->response()->setStatusCode(200);
     }
 
+    public function logout(Request $data){
+        $user = UserCaro::where('userName', '=', $data->username)->first();
+        $user->satatus = 0;
+        $user->save();
+        return response()->json(['statuscode'=>'logout oke'])->setStatusCode(200);
+    }
+
 }

@@ -24,5 +24,6 @@ Route::get('/reset', 'MyController@reset');
 Route::post('/login', 'MyController@login');
 Route::post('/signup', 'MyController@signup');
 Route::post('/search', 'MyController@search');
+Route::post('/logout', 'MyController@logout');
 Route::post('/friendrequest', 'MyController@friendrequest');
 Route::get('/friendlist/{id}', 'MyController@friendlist');
