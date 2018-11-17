@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Http\Resources\User;
+use App\Http\Resources\thongkers;
+use App\Http\Resources\Rank;
 use App\Http\Resources\flist;
 use App\Http\Resources\User1;
 use App\UserCaro;
@@ -22,6 +24,16 @@ class MyController extends Controller
     
     public function manh1(){
         return (new User(UserCaro::all()))->response()->setStatusCode(200);
+    }    
+    
+    public function thongke($id){
+        thongkers::withoutWrapping();
+        $user = ThongKe::find($id);
+        return (new thongkers($user))->response()->setStatusCode(200);
+    }
+    
+    public function thongke1(){
+        return (new Rank(ThongKe::all()))->response()->setStatusCode(200);
     }    
     
     public function friendlist($id){
@@ -96,7 +108,7 @@ class MyController extends Controller
 
     public function logout(Request $data){
         $user = UserCaro::where('userName', '=', $data->username)->first();
-        $user->satatus = 0;
+        $user->status = 0;
         $user->save();
         return response()->json(['statuscode'=>'logout oke'])->setStatusCode(200);
     }
