@@ -29,3 +29,6 @@ Route::post('/search', 'MyController@search');
 Route::post('/logout', 'MyController@logout');
 Route::post('/friendrequest', 'MyController@friendrequest');
 Route::get('/friendlist/{id}', 'MyController@friendlist');
+Route::post('/win', 'MyController@win');
+Route::post('/draw', 'MyController@draw');
+Route::post('/lose', 'MyController@lose');

@@ -118,4 +118,27 @@ class MyController extends Controller
         return response()->json(['statuscode'=>'logout oke'])->setStatusCode(200);
     }
 
+    public function win(Request $data){
+        $user = ThongKe::where('name', '=', $data->username)->first();
+        $user->gameCount++;
+        $user->win++;
+        $user->save();
+        return response()->json(['statuscode'=>'oke'])->setStatusCode(200);
+    }
+
+    public function lose(Request $data){
+        $user = ThongKe::where('name', '=', $data->username)->first();
+        $user->gameCount++;
+        $user->lose++;
+        $user->save();
+        return response()->json(['statuscode'=>'oke'])->setStatusCode(200);
+    }
+
+    public function draw(Request $data){
+        $user = ThongKe::where('name', '=', $data->username)->first();
+        $user->gameCount++;
+        $user->draw++;
+        $user->save();
+        return response()->json(['statuscode'=>'oke'])->setStatusCode(200);
+    }
 }
