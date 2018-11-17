@@ -28,7 +28,7 @@ class MyController extends Controller
     
     public function thongke($id){
         thongkers::withoutWrapping();
-        $user = ThongKe::find($id);
+        $user = ThongKe::where('idThongKe', '=', $id)->get();
         return (new thongkers($user))->response()->setStatusCode(200);
     }
     
