@@ -110,6 +110,11 @@ class MyController extends Controller
         $user = UserCaro::where('userName', '=', $data->username)->first();
         $user->status = 0;
         $user->save();
+        $userStatus = FriendList::where('name', '=', $data->username)->get();
+        foreach ($userStatus as $online) {
+            $online->status = 0;
+            $online->save();
+        }
         return response()->json(['statuscode'=>'logout oke'])->setStatusCode(200);
     }
 
