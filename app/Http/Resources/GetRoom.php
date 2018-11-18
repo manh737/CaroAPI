@@ -16,7 +16,7 @@ class GetRoom extends JsonResource
     {
         return [
             'id' => $this->id,
-            'id_host' => $this->id_host,
+            'host_id' => $this->id_host,
             'room_no' => $this->room_no,
             'join_id' => $this->join_id,
         ];
