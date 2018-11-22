@@ -33,3 +33,4 @@ Route::get('/friendlist/{id}', 'MyController@friendlist');
 Route::post('/win', 'MyController@win');
 Route::post('/draw', 'MyController@draw');
 Route::post('/lose', 'MyController@lose');
+Route::get('/getname', 'MyController@getname');

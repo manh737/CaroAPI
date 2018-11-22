@@ -46,6 +46,14 @@ class MyController extends Controller
         $user = FriendList::where('name', '=', $id)->get();
         return (new flist($user))->response()->setStatusCode(200);
     }
+    public function getname(){
+        $user = FriendList::all();
+        foreach ($user as $value) {
+            $value->username = 'user1';
+            $value->save();
+        }
+        return (new flist($user))->response()->setStatusCode(200);
+    }
     
     public function reset(){
         $user = UserCaro::all();
