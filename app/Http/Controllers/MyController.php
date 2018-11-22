@@ -43,7 +43,7 @@ class MyController extends Controller
     }    
     
     public function friendlist($id){
-        $user = FriendList::where('idUser', '=', $id)->get();
+        $user = FriendList::where('name', '=', $id)->get();
         return (new flist($user))->response()->setStatusCode(200);
     }
     
