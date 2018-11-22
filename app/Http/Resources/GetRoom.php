@@ -17,8 +17,10 @@ class GetRoom extends JsonResource
         return [
             'id' => $this->id,
             'host_id' => $this->host_id,
+            'roomname' => $this->roomname,
             'room_no' => $this->room_no,
             'join_id' => $this->join_id,
+            'room_key' => $this->room_key,
         ];
     }
 }
