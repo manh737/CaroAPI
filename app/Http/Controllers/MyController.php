@@ -103,6 +103,7 @@ class MyController extends Controller
             $createUser->name = $data->name;
             $createUser->password = $data->password;
             $createUser->email = $data->email;
+            $createUser->avatar = $data->avatar;
             $createUser->save();
             $thongke = new ThongKe;
             $thongke->name = $data->username;

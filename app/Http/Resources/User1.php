@@ -21,6 +21,7 @@ class User1 extends JsonResource
             //'friendlist' => $this->friendlist,
             'lichsudau' => $this->lichSuDau,
             'thongke' => $this->thongKe,
+            'avatar' => $this->avatar,
         ];
     }
 }
