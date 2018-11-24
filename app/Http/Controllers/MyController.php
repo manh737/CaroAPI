@@ -25,16 +25,15 @@ class MyController extends Controller
     }
     
     public function manh1(){
-        $user = FriendList::count();
-        if($user > 0){
-            return (new User(UserCaro::all()))->response()->setStatusCode(200);
-        }
-        return response()->json(['statuscode'=>'404'])->setStatusCode(404);
+        return (new User(UserCaro::all()))->response()->setStatusCode(200);
     }    
 
     public function room(){
-        
-        return (new GetRoomcl(Room::all()))->response()->setStatusCode(200);
+        $user = Room::count();
+        if($user > 0){
+            return (new GetRoomcl(Room::all()))->response()->setStatusCode(200);
+        }
+        return response()->json(['statuscode'=>'Not Found'])->setStatusCode(404);
     } 
     
     public function thongke($id){
