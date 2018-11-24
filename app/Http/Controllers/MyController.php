@@ -56,7 +56,7 @@ class MyController extends Controller
     }
     
     public function reset(){
-        $bien = array('manh1.jpg', 'manh2.jpg'. 'manh3.jpg');
+        $bien = array('manh1.jpg', 'manh2.jpg', 'manh3.jpg');
         $user = UserCaro::all();
         $user1 = FriendList::all();
         foreach ($user as $value) {
