@@ -29,11 +29,7 @@ class MyController extends Controller
     }    
 
     public function room(){
-        $user = Room::count();
-        if($user > 0){
-            return (new GetRoomcl(Room::all()))->response()->setStatusCode(200);
-        }
-        return response()->json(['statuscode'=>'Not Found'])->setStatusCode(404);
+        return (new GetRoomcl(Room::all()))->response()->setStatusCode(200);
     } 
     
     public function thongke($id){
