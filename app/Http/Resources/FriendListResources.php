@@ -18,6 +18,8 @@ class FriendListResources extends JsonResource
             'name' => $this->name,
             'idfriend'=> $this->idFriend,
             'status'=> $this->status,
+            'thongke'=> $this->thongke,
+            'user'=> $this->user,
         ];
     }
 }
